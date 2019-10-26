@@ -1,4 +1,4 @@
-# templatePoo
+# OOP TEMPLATE [PHP]
 
 A simple OOP template
 
@@ -29,4 +29,4 @@ return array (
 Pull requests are welcome ! 
 
 ## License
-[MIT](https://choosealicense.com/licenses/mit/)
+[MIT](https://github.com/Crash-Zeus/templatePoo/blob/master/LICENSE)
