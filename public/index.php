@@ -20,6 +20,11 @@ $router = new Router($_GET['url']);
 $router->get('/', 'index.index');
 
 /**
+ * Avec param
+ */
+$router->get('/:id', 'index.index');
+
+/**
  * Exemple d'appel en POST
  * Formulaire exemple
  */

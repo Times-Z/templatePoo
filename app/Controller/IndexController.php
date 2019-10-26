@@ -16,7 +16,6 @@ class IndexController extends AppController {
      * @return void
      */
     public function index() {
-        
         $form = new BootstrapForm($_POST);
         $this->render('index', compact('form'));
     }

@@ -45,14 +45,14 @@ class Route {
                 $controller = 'App\\Controller\\Admin\\' . ucfirst($params[1]) . 'Controller';
                 $action = $params[2];
                 $controller = new $controller;
-                return $controller->$action();
+                $controller->$action();
                 return call_user_func_array([$controller, $params[2]], $this->matches);
             } else {
                 $controller = 'App\\Controller\\' . ucfirst($params[0]) . 'Controller';
                 $action = $params[1];
                 $controller = new $controller;
-                return $controller->$action();
-                return  call_user_func_array([$controller, $params[1]], $this->matches);
+                return call_user_func_array([$controller, $params[1]], $this->matches);
+                $controller->$action();
             }
         } else {
             return call_user_func_array($this->callable, $this->matches);
