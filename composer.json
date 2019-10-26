@@ -1,0 +1,17 @@
+{
+    "name": "jonas/template-poo",
+    "description": "\"\"",
+    "authors": [
+        {
+            "name": "Crash-Zeus",
+            "email": "jonas.bertindev@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Core\\": "core",
+            "App\\": "app"
+        }
+    },
+    "require": {}
+}
