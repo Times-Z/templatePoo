@@ -26,4 +26,21 @@ $router->get('/', 'index.index');
 $router->post('/', 'index.post');
 
 
+/**
+ * Exemple d'appel de page en GET avec paramètre id (int)
+ */
+$router->get('/posts/:id', function($id) { echo $id;});
+
+/**
+ * Exemple d'appel en GET avec paramètre nom (string)
+ */
+$router->get('/profile/:nom', function($nom) { echo $nom; });
+
+/**
+ * Exemple d'appel en GET avec paramètre nom (string) + id (int)
+ */
+$router->get('/settings/:nom-:id', function ($nom, $id) { echo $nom . '&nbsp;' . $id; });
+
+
+
 $router->run();

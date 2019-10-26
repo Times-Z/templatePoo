@@ -2,6 +2,8 @@
 
 namespace Core\Router;
 
+use Core\Controller\Controller;
+
 class Router {
 
     private $url;
@@ -31,14 +33,16 @@ class Router {
 
     public function run() {
         if (!isset($this->routes[$_SERVER['REQUEST_METHOD']])) {
-            throw new RouterException('REQUEST_METHOD does not exist');
+            $controller = new Controller();
+            $controller->notFound();
         }
         foreach ($this->routes[$_SERVER['REQUEST_METHOD']] as $route) {
             if ($route->match($this->url)) {
                 return $route->call();
             }
         }
-        throw new RouterException('No routes matches');
+        $controller = new Controller();
+        $controller->notFound();
     }
 
 }
