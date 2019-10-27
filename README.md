@@ -121,13 +121,15 @@ $router->get('routeName/:param', function($param) {
 ## Contributing
 Pull requests are welcome ! You can fork the project to add your improvements.
 
-It is an WIP project
+It is an Work in progress project
 
 *This template is not perfect i know :)*
 
 *But i want participate in git for give example where OOP php is use in an MVC arch*
 
-*My code is not very clean, but is not dirt too ^^*
+*My code is not very very clean, but is not very dirt, i perfect my code in time ^^*
+
+*And sorry if my English is not perfect, i work that ! i promise you !*
 
 ## License
 [MIT](https://github.com/Crash-Zeus/templatePoo/blob/master/LICENSE) 
