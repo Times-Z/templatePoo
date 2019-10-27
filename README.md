@@ -1,33 +1,40 @@
 # OOP TEMPLATE [PHP]
  [![Project license](https://img.shields.io/pypi/l/ansicolortags.svg)](https://github.com/Crash-Zeus/templatePoo/blob/master/LICENSE)
- [![PHP](https://img.shields.io/badge/php-%3E%207.0-green)](https://www.php.net/downloads.php)
+ [![PHP version](https://img.shields.io/badge/php-%3E%207.0-green)](https://www.php.net/downloads.php)
+ [![PHP version](https://img.shields.io/badge/Apache%20module%20RewriteEngine-On-green)](https://httpd.apache.org/docs/2.4/fr/mod/mod_rewrite.html)
 
 A simple OOP template 
 
 ## Installation
 
-Download or clone the project in www folder
+Download or clone the project in www folder of your local server
 
 ```bash
 git clone https://github.com/Crash-Zeus/templatePoo.git
 ```
+Disclaimer : 
+
+If you use the intern server off PHP for launch the project, your path (for picts, css, jss etc) wont be correct
+
+
+For fix that, your path are not `src="<?=RACINE?>public/images/picture.png"` but `src="/images/picture.png"` in views
+
+---
 
 ## Config
 
-Configure the config/config.php with your parameters
+Configure the config/config.php with your parameters if you want connect in your DB
 
 ```php
-return array (
-
+return [
 	"db_user" => "your_DB_username",
 	"db_password" => "your_DB_password",
 	"db_host" => "your_DB_host",
 	"db_name" => "your_DBname"
-
-);
+];
 ```
-
-For add page :
+---
+## For add page :
 1. Add your route in public/index.php :
 ```php
 // No params
@@ -85,8 +92,24 @@ class TestController extends AppController {
 ```
 5. Go to route ! Enjoy !
 
+---
+## For receiving data from POST request :
+1. Repeat (just if you want separate view for the form) the steps 2 to 4
+2. Add the route on public/index.php :
+```php
+$router->post('routeName', 'viewName.functionName');
+```
+---
+## Tips
+- If you modify the folder name, don't forget to change the `RACINE` constance in public/index.php
+- You can create forms with the `Core\HTML\BoostrapForm` class
+
 ## Contributing
-Pull requests are welcome! You can fork the project to add your improvements.
+Pull requests are welcome ! You can fork the project to add your improvements.
+
+It is an WIP project
 
 ## License
-[MIT](https://github.com/Crash-Zeus/templatePoo/blob/master/LICENSE) - Crash Zeus - 2019
+[MIT](https://github.com/Crash-Zeus/templatePoo/blob/master/LICENSE) 
+
+ Crash Zeus - 2019
