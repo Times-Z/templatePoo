@@ -14,16 +14,7 @@ git clone https://github.com/Crash-Zeus/templatePoo.git
 ```
 Disclaimer : 
 
-If you use the intern server of PHP for launch the project, your path (for picts, css, jss etc) wont be correct
-
-
-For fix that, your path (in views) are not
-
-> `src="<?=RACINE?>public/images/picture.png"`
-
-but 
-
->`src="/images/picture.png"`
+Not use with internal PHP server
 
 ---
 
