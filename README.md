@@ -3,7 +3,7 @@
  [![PHP version](https://img.shields.io/badge/php-%3E%207.0-green)](https://www.php.net/downloads.php)
  [![PHP version](https://img.shields.io/badge/Apache%20module%20RewriteEngine-On-green)](https://httpd.apache.org/docs/2.4/fr/mod/mod_rewrite.html)
 
-A simple OOP template 
+*A simple OOP template what i use for my different project*
 
 ## Installation
 
@@ -14,10 +14,16 @@ git clone https://github.com/Crash-Zeus/templatePoo.git
 ```
 Disclaimer : 
 
-If you use the intern server off PHP for launch the project, your path (for picts, css, jss etc) wont be correct
+If you use the intern server of PHP for launch the project, your path (for picts, css, jss etc) wont be correct
 
 
-For fix that, your path are not `src="<?=RACINE?>public/images/picture.png"` but `src="/images/picture.png"` in views
+For fix that, your path (in views) are not
+
+> `src="<?=RACINE?>public/images/picture.png"`
+
+but 
+
+>`src="/images/picture.png"`
 
 ---
 
@@ -41,7 +47,7 @@ return [
 $router->get('/routeName', 'viewName.functionName');
 // 1 param
 $router->get('/routeName/:param', 'viewName.functionName');
-// 2 param
+// 2 params
 $router->get('/routeName/:param1/:param2', 'viewName.functionName');
 // etc...
 ```
@@ -101,13 +107,19 @@ $router->post('routeName', 'viewName.functionName');
 ```
 ---
 ## Tips
-- If you modify the folder name, don't forget to change the `RACINE` constance in public/index.php
+- If you modify the project folder name, don't forget to change the `RACINE` constance in public/index.php
 - You can create forms with the `Core\HTML\BoostrapForm` class
 
 ## Contributing
 Pull requests are welcome ! You can fork the project to add your improvements.
 
 It is an WIP project
+
+*This template is not perfect i know :)*
+
+*But i want participate in git for give example where OOP php is use in an MVC arch*
+
+*My code is not very clean, but is not dirt too ^^*
 
 ## License
 [MIT](https://github.com/Crash-Zeus/templatePoo/blob/master/LICENSE) 
