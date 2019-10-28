@@ -8,6 +8,8 @@ define('RACINE', "/templatePoo/");
 require ROOT . '/vendor/autoload.php';
 require ROOT . '/app/App.php';
 
+App::load();
+
 /**
  * Instanciation du router
  */
