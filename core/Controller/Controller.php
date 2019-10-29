@@ -24,6 +24,7 @@ class Controller {
 		$getPage = str_replace(".php", "", basename($_SERVER['PHP_SELF']));
 		$content = ob_get_clean();
 		require($this->viewPath . 'Templates/' . $this->template . '.php');
+		die();
 	}
 
 	public function forbidden() {
