@@ -97,7 +97,7 @@ class TestController extends AppController {
 $router->post('routeName', 'viewName.functionName');
 ```
 
-## If you want just execute code and but not in a view :
+## If you want just execute code but not in a view :
 Create the route you need and add an anonymous function with parameters and code you want to execute
 ```php
 $router->get('routeName/:param', function($param) {
