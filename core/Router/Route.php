@@ -9,17 +9,30 @@ class Route {
     private $matches = [];
     private $params = [];
 
-    public function __construct($path, $callable) {
+    public function __construct(string $path, $callable) {
         $this->path = trim($path, '/');
         $this->callable = $callable;
     }
 
-    public function with($param, $regex) {
+    /**
+     * Add patern to an specific param
+     *
+     * @param string $param The param you want effect without the ":"
+     * @param string $regex The regex you want use for this param
+     * @return boolean
+     */
+    public function with(string $param, $regex) {
         $this->params[$param] = str_replace('(', '(?:', $regex);
         return $this;
     }
 
-    public function match($url) {
+    /**
+     * Check if the URL has a matching route
+     *
+     * @param string $url
+     * @return boolean
+     */
+    public function match(string $url) {
         $url = trim($url, '/');
         $path = preg_replace_callback('#:([\w]+)#', [$this, 'paramMatch'], $this->path);
         $regex = "#^$path$#i";
@@ -31,6 +44,12 @@ class Route {
         return true;
     }
 
+    /**
+     * Return parsed matches
+     *
+     * @param string $match
+     * @return string
+     */
     private function paramMatch($match) {
         if (isset($this->params[$match[1]])) {
             return '(' . $this->params[$match[1]] . ')';
@@ -38,7 +57,13 @@ class Route {
         return '([^/]+)';
     }
 
+    /**
+     * Call the matches controller route
+     *
+     * @return \App\Controller\
+     */
     public function call() {
+
         if (is_string($this->callable)) {
             $params = explode('.', $this->callable);
             if ($params[0] === 'admin') {
