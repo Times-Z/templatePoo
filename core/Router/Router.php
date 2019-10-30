@@ -4,25 +4,53 @@ namespace Core\Router;
 
 use Core\Controller\Controller;
 
+/**
+ * Router class, for adding an gps on your app !
+ */
 class Router {
 
     private $url;
     private $routes = [];
     private $namedRoutes = [];
 
-    public function __construct($url) {
+    public function __construct(string $url) {
         $this->url = $url;
     }
 
-    public function get($path, $callable, $name = null) {
+    /**
+     * Get the page for an request method GET
+     *
+     * @param string $path
+     * @param string $callable
+     * @param string $name
+     * @return Core\Router\Route
+     */
+    public function get(string $path, $callable, $name = null) {
         return $this->add($path, $callable, $name, 'GET');
     }
 
-    public function post($path, $callable, $name = null) {
+    /**
+     * Get the page for an request method POST
+     *
+     * @param string $path
+     * @param string $callable
+     * @param string $name
+     * @return Core\Router\Route
+     */
+    public function post(string $path, $callable, $name = null) {
         return $this->add($path, $callable, $name, 'POST');
     }
 
-    private function add($path, $callable, $name, $method) {
+    /**
+     * Add the route to named routes
+     *
+     * @param string $path
+     * @param string $callable
+     * @param string $name
+     * @param string $method
+     * @return Core\Router\Route
+     */
+    private function add(string $path, $callable, $name, $method) {
         $route = new Route($path, $callable);
         $this->routes[$method][] = $route;
         if ($name) {
@@ -31,6 +59,11 @@ class Router {
         return $route;
     }
 
+    /**
+     * Run the router
+     *
+     * @return Core\Controller\
+     */
     public function run() {
         if (!isset($this->routes[$_SERVER['REQUEST_METHOD']])) {
             $controller = new Controller();
