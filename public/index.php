@@ -27,6 +27,11 @@ $router->get('/', 'index.index');
 $router->get('/:id', 'index.index');
 
 /**
+ * Avec param modifier
+ */
+$router->get('/:id', 'index.post')->with('id', '[A-Za-z]+');
+
+/**
  * Exemple d'appel en POST
  * Formulaire exemple
  */
