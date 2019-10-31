@@ -53,7 +53,7 @@ class Form {
      * @param array $options
      * @return void
      */
-    public function input($name, $label, $options = []) {
+    public function input(string $name, string $label, array $options = []) {
         $type = isset($options['type']) ? $options['type'] : 'text';
         return $this->__surround('<input type="' . $type .'" name="' . $name . '" value="' . $this->__getValue($name) . '">');
     }
@@ -67,7 +67,7 @@ class Form {
      * @param string $space
      * @return void
      */
-    public function submit($name, $value, $space = '') {
+    public function submit(string $name, string $value, string $space = '') {
         return $this->__surround('<input class="' . $space . '" type="submit" name="' . $name . '" value="' . $value . '">');
     }
 

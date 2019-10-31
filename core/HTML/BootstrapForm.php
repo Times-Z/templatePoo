@@ -14,7 +14,7 @@ class BootstrapForm extends Form {
      * @param boolean $inline
      * @return string
      */
-    protected function surround($html, $inline = false) {
+    protected function surround(string $html, bool $inline = false) :string {
         if ($inline) {
             return "<div class=\"form-check form-check-inline\">{$html}</div>";
         } else {
@@ -35,7 +35,7 @@ class BootstrapForm extends Form {
      * @param string $value String if you want to ad an manual value at the field
      * @return string
      */
-    public function input($name, $label, $options = [], $placeholder = "", $pattern = false, $required = false, $disable = false, $value = false) {
+    public function input(string $name, string $label, array $options = [], string $placeholder = '', $pattern = false, bool $required = false, bool $disable = false, $value = false) :string {
         $type = isset($options['type']) ? $options['type'] : 'text';
 
         if ($label !== '') {
@@ -86,7 +86,14 @@ class BootstrapForm extends Form {
         return $this->surround($label . $input);
     }
 
-    public function option($value, $name) {
+    /**
+     * Just option for input select
+     *
+     * @param string $value
+     * @param string $name
+     * @return string
+     */
+    public function option(string $value, string $name) :string {
         $input = '<option value="' . $value . '">' . $name . '</option>';
         return $input;
     }
@@ -102,7 +109,7 @@ class BootstrapForm extends Form {
      * @param boolean $required True (default) if you want require the field
      * @return string
      */
-    public function password($name, $label, $placeholder = "", $secu = true, $required = true) {
+    public function password(string $name, string $label, string $placeholder = "", bool $secu = true, bool $required = true) :string {
         $labelo = '<label for="' . $name . '">' . $label . '</label>';
 
         if ($required === true) {
@@ -133,7 +140,7 @@ class BootstrapForm extends Form {
      * @param boolean $disable True if you want disable
      * @return string
      */
-    public function radio($name, $group, $label_name, $inline = false, $check = false, $disable = false) {
+    public function radio(string $name, string $group, string $label_name, bool $inline = false, bool $check = false, bool $disable = false) :string {
         if ($inline) {
             $label = '<label for="'. $name .'">'. $label_name . '</label>';
             if ($disable) {
@@ -173,7 +180,7 @@ class BootstrapForm extends Form {
      * @param boolean $disable True if you want to disable
      * @return string
      */
-    public function slide($name, $label, $min, $max, $step, $disable = false) {
+    public function slide(string $name, string $label, int $min, int $max, int $step, bool $disable = false) :string {
         $labelo = '<label for="' . $name . '">' . $label . '</label>';
         if ($disable) {
             $input = '<input id="' . $name . '" class="form-control-range" type="range" id="' . $name . '" name="' . $name . '" min="' . $min . '" max="' . $max . '" value="' . $this->__getValue($name) . '" step="' . $step . '" disabled>';
@@ -195,7 +202,7 @@ class BootstrapForm extends Form {
      * @param boolean $disable True if you want to disable
      * @return string
      */
-    public function check($name, $label, $checked = false, $inline = false, $disable = false) {
+    public function check(string $name, string $label, bool $checked = false, bool $inline = false, bool $disable = false) :string {
         $label = '<label for="' . $name . '">' . $label . '</label>';
         if ($checked === true) {
             $checked = 'checked';
@@ -220,7 +227,7 @@ class BootstrapForm extends Form {
      * @param array $options The input option like ['testKey'=>'testValue']
      * @return string
      */
-    public function select($name, $label, $options = []) {
+    public function select(string $name, string $label, array $options = []) :string {
         $label = '<label for"'. $name .'">' . $label . '</label>';
         $input = '<select id="' . $name . '" class="form-control" name="' . $name . '">';
         foreach ($options as $k => $v) {
@@ -247,7 +254,7 @@ class BootstrapForm extends Form {
      * @param string $class default = btn btn-primary
      * @return string
      */
-    public function button($name, $value, $disable = false, $class = "btn btn-primary") {
+    public function button(string $name, string $value, bool $disable = false, string $class = "btn btn-primary") :string {
         if ($disable) {
             return $this->surround('<input id="' . $name . '" name="' . $name . '" class="' . $class . '" type="button" value="' . $value . '" disabled >');
         } else {
@@ -267,7 +274,7 @@ class BootstrapForm extends Form {
      * @param boolean $disable True if you want disable the input
      * @return string
      */
-    public function upload($name, $label, $accept = false, $multiple = false , $disable = false) {
+    public function upload(string $name, string $label, $accept = false, bool $multiple = false ,  bool $disable = false) :string {
 
         if ($label !== '') {
             $labelo = '<label for="' . $name . '">' . $label . '</label>';
@@ -296,7 +303,7 @@ class BootstrapForm extends Form {
      * @param boolean $disable True if you want to disable the input
      * @return string
      */
-    public function reset($value, $class = "btn btn-primary", $disable = false) {
+    public function reset(string $value, string $class = "btn btn-primary", bool $disable = false) :string {
         if ($disable) {
             $input = '<input class="' . $class . '" type="reset" value="' . $value . '" disabled>';
         } else {
@@ -313,7 +320,7 @@ class BootstrapForm extends Form {
      * @param string|boolean $space Add class space like 'mt-4'
      * @return string
      */
-    public function submit($name, $value, $space = false) {
+    public function submit(string $name, string $value, string $space = '') :string {
         return $this->surround('<input type="submit" class="form-control btn btn-success ' . $space . '" name="' . $name . '" value="' . $value . '">');
     }
 	
