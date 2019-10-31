@@ -65,7 +65,7 @@ class Route {
      *
      * @return \App\Controller\
      */
-    public function call() :object {
+    public function call() {
 
         if (is_string($this->callable)) {
             $params = explode('.', $this->callable);
@@ -73,8 +73,8 @@ class Route {
                 $controller = 'App\\Controller\\Admin\\' . ucfirst($params[1]) . 'Controller';
                 $action = $params[2];
                 $controller = new $controller;
-                $controller->$action();
                 return call_user_func_array([$controller, $params[2]], $this->matches);
+                $controller->$action();
             } else {
                 $controller = 'App\\Controller\\' . ucfirst($params[0]) . 'Controller';
                 $action = $params[1];

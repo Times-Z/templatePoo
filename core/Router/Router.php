@@ -65,7 +65,7 @@ class Router {
      *
      * @return object
      */
-    public function run() :object {
+    public function run() {
         if (!isset($this->routes[$_SERVER['REQUEST_METHOD']])) {
             $controller = new Controller();
             $controller->notFound();
