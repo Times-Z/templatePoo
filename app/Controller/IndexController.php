@@ -17,8 +17,6 @@ class IndexController extends AppController {
      */
     public function index() :void {
         $form = new BootstrapForm($_POST);
-        $config = \App::getInstance();
-        var_dump($config);
         $this->render('index', compact('form'));
     }
 
