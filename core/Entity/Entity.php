@@ -3,15 +3,16 @@
 namespace Core\Entity;
 
 /**
- * Class Entity, gère toute les entitées de l'api
+ * Entity class
+ * @package Core\Entity
  */
 class Entity {
 
 	/**
-	 * Magic function récupère a la volé le get utilisé
+	 * Magic method
 	 *
-	 * @param string $key
-	 * @return string
+	 * @param string $key the name of the proprety
+	 * @return mixed|null
 	 */
 	public function __get($key) {
 		$method = 'get' .ucfirst($key);
