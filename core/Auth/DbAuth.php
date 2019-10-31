@@ -3,7 +3,8 @@
 namespace Core\Auth;
 
 /**
- * Class DbAuth gère les connections entre l'utilisateur et la base de donnée
+ * Setup DB and user interaction
+ * @package Core\Auth
  */
 class DbAuth {
 
@@ -26,7 +27,7 @@ class DbAuth {
 	}
 
 	/**
-	 * Permet de se connecter au site
+	 * Login to the site (not used)
 	 *
 	 * @param string $username
 	 * @param string $password
@@ -44,9 +45,9 @@ class DbAuth {
 	}
 
 	/**
-	 * Retourne la session si existante
+	 * Return the session if exist
 	 *
-	 * @return void
+	 * @return array
 	 */
 	public function logged() {
 		return isset($_SESSION['auth']);
