@@ -1,17 +1,20 @@
 {
-    "name": "jonas/template-poo",
-    "description": "\"\"",
+    "name": "jonas/template-oop",
+    "keywords": ["oop", "template"],
+    "description": "An simple OOP MVC template for your php project",
     "authors": [
         {
             "name": "Crash-Zeus",
             "email": "crashzeusytb@gmail.com"
         }
     ],
+    "require": {
+        "php": ">=7.0"
+    },
     "autoload": {
         "psr-4": {
             "Core\\": "core",
             "App\\": "app"
         }
-    },
-    "require": {}
+    }
 }
