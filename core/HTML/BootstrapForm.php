@@ -2,14 +2,15 @@
 namespace Core\HTML;
 
 /**
- * Class FormBoostrap extends de Form
+ * Class FormBoostrap extends Form
  * @package Core\HTML
  */
 class BootstrapForm extends Form {
 
     /**
+     * Surround method
      *
-     * @param string $html Entour le champs avec une div class form-group / inline
+     * @param string $html
      * @param boolean $inline
      * @return string
      */
@@ -22,12 +23,16 @@ class BootstrapForm extends Form {
     }
 
     /**
-     * Input text
-     * 
-     * @param string $name
-     * @param string $label
-     * @param array $options
-     * @param boolean $disable
+     * Input method
+     *
+     * @param string $name The name of input
+     * @param string $label The label of input
+     * @param array $options The option type like ['type'=>'textarea']
+     * @param string $placeholder The placeholder of the field
+     * @param string|boolean $pattern The pattern if you want or false if not
+     * @param boolean $required Trur if you want an require intput
+     * @param boolean $disable True if you want to disable the input
+     * @param string $value String if you want to ad an manual value at the field
      * @return string
      */
     public function input($name, $label, $options = [], $placeholder = "", $pattern = false, $required = false, $disable = false, $value = false) {
@@ -87,15 +92,15 @@ class BootstrapForm extends Form {
     }
 
     /**
-     * Input Password
-     * Sécu haute de base -> pattern min 8 carac min + maj + chiffre + carac spécial
+     * Input password
+     * High security base => 1 upper case, 1 lower case, 1 number and 1 special character
      *
-     * @param string $name
-     * @param string $label
-     * @param string $placeholder
-     * @param boolean $secu
-     * @param boolean $required
-     * @return void
+     * @param string $name The name of input
+     * @param string $label The label of input
+     * @param string $placeholder The placeholder of input
+     * @param boolean $secu True high False no security
+     * @param boolean $required True (default) if you want require the field
+     * @return string
      */
     public function password($name, $label, $placeholder = "", $secu = true, $required = true) {
         $labelo = '<label for="' . $name . '">' . $label . '</label>';
@@ -118,13 +123,14 @@ class BootstrapForm extends Form {
     }
 
     /**
-     * Input Radio
+     * Radio Input
      *
-     * @param string $name
-     * @param string $group
-     * @param string $label_name
-     * @param boolean $inline
-     * @param boolean $disable
+     * @param string $name The uniq id of the input
+     * @param string $group The group name of group input 
+     * @param string $label_name The label of input
+     * @param boolean $inline True if you want inline radio
+     * @param boolean $check True if you want default check
+     * @param boolean $disable True if you want disable
      * @return string
      */
     public function radio($name, $group, $label_name, $inline = false, $check = false, $disable = false) {
@@ -157,15 +163,15 @@ class BootstrapForm extends Form {
 
 
     /**
-     * Input Range
+     * Range input
      *
-     * @param string $name
-     * @param string $label
-     * @param int $min
-     * @param int $max
-     * @param int $step
-     * @param boolean $disable
-     * @return void
+     * @param string $name The name of input
+     * @param string $label The label name of input
+     * @param int $min Range min value
+     * @param int $max Range max value
+     * @param int $step Range step value
+     * @param boolean $disable True if you want to disable
+     * @return string
      */
     public function slide($name, $label, $min, $max, $step, $disable = false) {
         $labelo = '<label for="' . $name . '">' . $label . '</label>';
@@ -182,11 +188,12 @@ class BootstrapForm extends Form {
     /**
      * Input checkbox
      *
-     * @param string $name
-     * @param string $label
-     * @param boolean $inline
-     * @param boolean $disable
-     * @return void
+     * @param string $name The name of input
+     * @param string $label The label name of input
+     * @param boolean $checked True if you want to default check
+     * @param boolean $inline True if you want to get inline checkbox input
+     * @param boolean $disable True if you want to disable
+     * @return string
      */
     public function check($name, $label, $checked = false, $inline = false, $disable = false) {
         $label = '<label for="' . $name . '">' . $label . '</label>';
@@ -206,11 +213,11 @@ class BootstrapForm extends Form {
     }
 
     /**
-     * Input Select
+     * Select input
      *
-     * @param string $name
-     * @param string $label
-     * @param array $options
+     * @param string $name The name of input
+     * @param string $label The label name of input
+     * @param array $options The input option like ['testKey'=>'testValue']
      * @return string
      */
     public function select($name, $label, $options = []) {
@@ -232,13 +239,13 @@ class BootstrapForm extends Form {
     }
 
     /**
-     * Input Button
+     * Button input
      *
-     * @param string $name
-     * @param string $value
-     * @param boolean $disable
-     * @param string $class
-     * @return void
+     * @param string $name The name of input
+     * @param string $value The value of input
+     * @param boolean $disable True if you want disable the button
+     * @param string $class default = btn btn-primary
+     * @return string
      */
     public function button($name, $value, $disable = false, $class = "btn btn-primary") {
         if ($disable) {
@@ -251,15 +258,16 @@ class BootstrapForm extends Form {
 
     
     /**
-     * Input Upload file
+     * File upload input
      *
-     * @param string $name
-     * @param string $label
-     * @param string $accept
-     * @param boolean $disable
-     * @return void
+     * @param string $name The name of input
+     * @param string $label The label name of input
+     * @param string|boolean $accept Accept file like : 'image/jpg'
+     * @param boolean $multiple False default, true for multiple files
+     * @param boolean $disable True if you want disable the input
+     * @return string
      */
-    public function upload($name, $label, $accept = false,$multiple = false ,$disable = false) {
+    public function upload($name, $label, $accept = false, $multiple = false , $disable = false) {
 
         if ($label !== '') {
             $labelo = '<label for="' . $name . '">' . $label . '</label>';
@@ -281,12 +289,12 @@ class BootstrapForm extends Form {
     }
 
     /**
-     * Input Reset
+     * Input reset
      *
-     * @param string $value
-     * @param string $class
-     * @param boolean $disable
-     * @return void
+     * @param string $value The value of input
+     * @param string $class Default = btn btn-primary
+     * @param boolean $disable True if you want to disable the input
+     * @return string
      */
     public function reset($value, $class = "btn btn-primary", $disable = false) {
         if ($disable) {
@@ -298,12 +306,12 @@ class BootstrapForm extends Form {
     }
 
     /**
-     * Input Submit
+     * Input submit
      *
-     * @param string $name
-     * @param string $value
-     * @param boolean $space
-     * @return void
+     * @param string $name The name of input
+     * @param string $value The value of input
+     * @param string|boolean $space Add class space like 'mt-4'
+     * @return string
      */
     public function submit($name, $value, $space = false) {
         return $this->surround('<input type="submit" class="form-control btn btn-success ' . $space . '" name="' . $name . '" value="' . $value . '">');
