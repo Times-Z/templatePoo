@@ -10,18 +10,18 @@ class DbAuth {
 
 	private $db;
 
-	/**
-	 * Renvoie une erreur si Database de Core précisé
-	 *
-	 * @param string $db
-	 */
-    public function __construct($db) {
+    public function __construct(object $db) {
 		$this->db = $db;
 	}
 	
+	/**
+	 * Get the user id from SESSION if exist
+	 *
+	 * @return mixed|bool
+	 */
 	public function getUserId() {
 		if ($this->logged()) {
-			return $_SESSION['auth'];
+			return $_SESSION['auth']['id'];
 		}
 		return false;
 	}
@@ -33,11 +33,11 @@ class DbAuth {
 	 * @param string $password
 	 * @return boolean
 	 */
-	public function login($username, $password) {
+	public function login(string $username, string $password) :bool {
 		$user = $this->db->prepare('SELECT * FROM users WHERE username = ?', [$username], null, true);
 		if ($user) {
 			if (password_verify($password, $user->password)) {
-				$_SESSION['auth'] = $user->id;
+				$_SESSION['auth']['id'] = $user->id;
 				return true;
 			}
 		}
