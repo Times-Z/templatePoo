@@ -5,7 +5,8 @@ namespace Core\Table;
 use Core\Database\Database;
 
 /**
- * Class Table, class maitresse relation bdd
+ * Table class
+ * @package Core\Table
  */
 class Table {
 
@@ -23,7 +24,7 @@ class Table {
 
 
 	/**
-	 * Select all de la table de l'instance
+	 * Select all from table
 	 *
 	 * @return void
 	 */
@@ -33,14 +34,14 @@ class Table {
 
 
 	/**
-	 * Crée et execute une requete preparée ou non
+	 * Create and execute and simple query or an prepared statement
 	 *
 	 * @param string $statement
 	 * @param string $attr
 	 * @param boolean $one
 	 * @return void
 	 */
-	public function query($statement, $attr = null, $one = false) {
+	public function query(string $statement, $attr = null, bool $one = false) {
 		if ($attr) {
 			return $this->db->prepare($statement, $attr, str_replace('Table', 'Entity', get_class($this)), $one);
 		} else {
@@ -50,16 +51,23 @@ class Table {
 	}
 
 	/**
-	 * Chope l'id dans la table de l'instance
+	 * Get all from an specifique id
 	 *
 	 * @param int $id
 	 * @return void
 	 */
-	public function find($id) {
+	public function find(int $id) {
 		return $this->query("SELECT * FROM {$this->table} WHERE id = ?", [$id], true);
 	}
 
-	public function update($id, $fields) {
+	/**
+	 * Update instance table
+	 *
+	 * @param int $id
+	 * @param string $fields
+	 * @return void
+	 */
+	public function update(int $id, string $fields) {
 		$sql_parts = [];
 		$attr = [];
 		foreach ($fields as $k => $v) {
@@ -71,11 +79,23 @@ class Table {
 		return $this->query("UPDATE {$this->table} SET {$sql_part} WHERE id = ?", $attr, true);
 	}
 
-	public function delete($id) {
+	/**
+	 * Delete from id
+	 *
+	 * @param int $id
+	 * @return void
+	 */
+	public function delete(int $id) {
 		return $this->query("DELETE FROM {$this->table} WHERE id = ?", [$id]);
 	}
 
-	public function create($fields) {
+	/**
+	 * Insert into table
+	 *
+	 * @param string $fields
+	 * @return void
+	 */
+	public function create(string $fields) {
 		$sql_parts = [];
 		$attr = [];
 		foreach ($fields as $k => $v) {
@@ -86,7 +106,14 @@ class Table {
 		return $this->query("INSERT INTO {$this->table} SET {$sql_part}", $attr, true);
 	}
 
-	public function extract($key, $value) {
+	/**
+	 * Extract value
+	 *
+	 * @param string $key
+	 * @param string $value
+	 * @return void
+	 */
+	public function extract(string $key, string $value) {
 		$records = $this->all();
 		$return = [];
 		foreach ($records as $v) {

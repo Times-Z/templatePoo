@@ -14,12 +14,12 @@ class Controller {
 	 * Render the page
 	 *
 	 * @param string $view
-	 * @param array $variables
+	 * @param array $vars
 	 * @return void
 	 */
-	protected function render($view, $variables = []) {
+	protected function render(string $view, array $vars = []) :void {
 		ob_start();
-		extract($variables);
+		extract($vars);
 		require($this->viewPath . str_replace('.', '/', $view) . '.php');
 		$getPage = str_replace(".php", "", basename($_SERVER['PHP_SELF']));
 		$content = ob_get_clean();
@@ -32,7 +32,7 @@ class Controller {
 	 *
 	 * @return void
 	 */
-	public function forbidden() {
+	public function forbidden() :void {
 		header('HTTP/1.0 403 Forbidden');
 		die('Accés refuser');
 	}
@@ -42,7 +42,7 @@ class Controller {
 	 *
 	 * @return void
 	 */
-	public function notFound() {
+	public function notFound() :void {
 		header('HTTP/1.0 404 Not Found');
 		die('Page innexistante');
 	}

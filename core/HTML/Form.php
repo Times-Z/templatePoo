@@ -1,37 +1,26 @@
 <?php
 namespace Core\HTML;
 
-
 /**
- * Class Form
- * Permet de générer un formulaire rapidement et simplement
+ * Form class
+ * @package Core\HTML
  */
 class Form {
 
-    /**
-     * @var array Données utilisées par le formulaire
-     */
     protected $data;
-
-    /**
-     * @var string Tag utilisé pour entourer les champs
-     */
     public $surround = 'p';
 
-    /**
-     * @param array $data Données utilisées par le formulaire
-     */
-    public function __construct($data = array()) {
-
+    public function __construct(array $data = []) {
         $this->data = $data;
-
     }
 
     /**
-     * @param $index string Index de la valeur a récupérer
-     * @return string
+     * Get the value of form
+     *
+     * @param string $index The index of data ex = data['inputTest']
+     * @return void
      */
-    protected function __getValue($index) {
+    protected function __getValue(string $index) {
         if (is_object($this->data)) {
             return $this->data->$index;
         }
@@ -39,23 +28,27 @@ class Form {
     }
 
     /**
-     * @param  $html string Code HTML à entourer
+     * Surround the html
+     *
+     * @param string $html
      * @return string
      */
-    protected function __surround($html) {
+    protected function __surround(string $html) :string {
         return "<{$this->surround}>{$html}</$this->surround}>";
     }
 
     
     /**
+     * Input
+     *
      * @param string $name
      * @param string $label
      * @param array $options
-     * @return void
+     * @return string
      */
-    public function input(string $name, string $label, array $options = []) {
+    public function input(string $name, string $label, array $options = []) :string {
         $type = isset($options['type']) ? $options['type'] : 'text';
-        return $this->__surround('<input type="' . $type .'" name="' . $name . '" value="' . $this->__getValue($name) . '">');
+        return $this->__surround('<input id="' . $label .'" type="' . $type .'" name="' . $name . '" value="' . $this->__getValue($name) . '">');
     }
 
 
@@ -65,9 +58,9 @@ class Form {
      * @param string $name
      * @param string $value
      * @param string $space
-     * @return void
+     * @return string
      */
-    public function submit(string $name, string $value, string $space = '') {
+    public function submit(string $name, string $value, string $space = '') :string {
         return $this->__surround('<input class="' . $space . '" type="submit" name="' . $name . '" value="' . $value . '">');
     }
 

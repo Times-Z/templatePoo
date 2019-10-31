@@ -15,8 +15,10 @@ class IndexController extends AppController {
      *
      * @return void
      */
-    public function index() {
+    public function index() :void {
         $form = new BootstrapForm($_POST);
+        $config = \App::getInstance();
+        var_dump($config);
         $this->render('index', compact('form'));
     }
 
@@ -25,7 +27,7 @@ class IndexController extends AppController {
      *
      * @return void
      */
-    public function post() {
+    public function post() :void{
         \App::getInstance()->title = "NEVER TRUST USER INPUT";
         $this->render('template');
     }

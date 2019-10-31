@@ -14,7 +14,7 @@ class Entity {
 	 * @param string $key the name of the proprety
 	 * @return mixed|null
 	 */
-	public function __get($key) {
+	public function __get(string $key) {
 		$method = 'get' .ucfirst($key);
 		$this->$key = $this->$method();
 		return $this->$key;

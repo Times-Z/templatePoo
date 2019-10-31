@@ -22,9 +22,9 @@ class Route {
      *
      * @param string $param The param you want effect without the ":"
      * @param string $regex The regex you want use for this param
-     * @return boolean
+     * @return self
      */
-    public function with(string $param, $regex) {
+    public function with(string $param, $regex) :self {
         $this->params[$param] = str_replace('(', '(?:', $regex);
         return $this;
     }
@@ -35,7 +35,7 @@ class Route {
      * @param string $url
      * @return boolean
      */
-    public function match(string $url) {
+    public function match(string $url) :bool {
         $url = trim($url, '/');
         $path = preg_replace_callback('#:([\w]+)#', [$this, 'paramMatch'], $this->path);
         $regex = "#^$path$#i";
@@ -53,7 +53,7 @@ class Route {
      * @param string $match
      * @return string
      */
-    private function paramMatch($match) {
+    private function paramMatch($match) :string {
         if (isset($this->params[$match[1]])) {
             return '(' . $this->params[$match[1]] . ')';
         }
@@ -65,7 +65,7 @@ class Route {
      *
      * @return \App\Controller\
      */
-    public function call() {
+    public function call() :object {
 
         if (is_string($this->callable)) {
             $params = explode('.', $this->callable);

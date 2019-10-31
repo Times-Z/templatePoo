@@ -14,7 +14,7 @@ Class MysqlDatabase extends Database {
 	private $db_host;
 	private $pdo;
 
-    public function __construct($db_name, $db_user = 'local', $db_password = 'admin', $db_host = 'localhost') {
+    public function __construct(string $db_name, string $db_user = 'local', string $db_password = 'admin', string $db_host = 'localhost') {
 
 		$this->db_name = $db_name;
 		$this->db_user = $db_user;
@@ -26,10 +26,9 @@ Class MysqlDatabase extends Database {
 	/**
 	 * Initialise PDO object if not exist
 	 *
-	 * @return PDO
+	 * @return \PDO
 	 */
-	private function getPDO() {
-		
+	private function getPDO() :PDO {
 		if ($this->pdo === null) {
 			$pdo = new PDO('mysql:dbname=' . $this->db_name . ';host=' . $this->db_host . '', '' . $this->db_user . '', '' . $this->db_password . '');
 			$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -41,12 +40,12 @@ Class MysqlDatabase extends Database {
 	/**
 	 * Execute an simple query statement
 	 *
-	 * @param string $statement
-	 * @param string $class_name
-	 * @param boolean $one
+	 * @param string $statement Sql statement
+	 * @param bool|string $class_name Class name if you want use PDO::FETCH_CLASS
+	 * @param boolean $one True if you want get one result only
 	 * @return mixed
 	 */
-	public function query($statement, $class_name = null, $one = false) {
+	public function query(string $statement, $class_name = null, bool $one = false) {
 		$req = $this->getPDO()->query($statement);
 		if (
 			strpos($statement, 'UPDATE') === 0 ||
@@ -71,13 +70,13 @@ Class MysqlDatabase extends Database {
 	/**
 	 * Execute an prepare statement
 	 *
-	 * @param string $statement
+	 * @param string $statement Sql statement
 	 * @param string $options
 	 * @param string $class_name
 	 * @param boolean $one
 	 * @return mixed
 	 */
-	public function prepare($statement, $options, $class_name = null, $one = false) {
+	public function prepare(string $statement, string $options, $class_name = null, bool $one = false) {
 		foreach ($_POST as $key => $value) {
 			if ($key !== \App::getInstance()->escapeHtml) {
 				$_POST[$key] = trim(stripslashes(htmlentities(filter_var($value))));
@@ -108,9 +107,9 @@ Class MysqlDatabase extends Database {
 	/**
 	 * Return the last insert ID
 	 *
-	 * @return PDO
+	 * @return string
 	 */
-	public function lastInsertId() {
+	public function lastInsertId() :string {
 		return $this->getPDO()->lastInsertId();
 	}
 

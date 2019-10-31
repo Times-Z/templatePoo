@@ -24,9 +24,9 @@ class Router {
      * @param string $path
      * @param string $callable
      * @param string $name
-     * @return Core\Router\Route
+     * @return object
      */
-    public function get(string $path, $callable, $name = null) {
+    public function get(string $path, $callable, $name = null) :object {
         return $this->add($path, $callable, $name, 'GET');
     }
 
@@ -36,9 +36,9 @@ class Router {
      * @param string $path
      * @param string $callable
      * @param string $name
-     * @return Core\Router\Route
+     * @return object
      */
-    public function post(string $path, $callable, $name = null) {
+    public function post(string $path, $callable, $name = null) :object {
         return $this->add($path, $callable, $name, 'POST');
     }
 
@@ -49,9 +49,9 @@ class Router {
      * @param string $callable
      * @param string $name
      * @param string $method
-     * @return Core\Router\Route
+     * @return Route
      */
-    private function add(string $path, $callable, $name, $method) {
+    private function add(string $path, $callable, $name, $method) :Route {
         $route = new Route($path, $callable);
         $this->routes[$method][] = $route;
         if ($name) {
@@ -63,9 +63,9 @@ class Router {
     /**
      * Run the router
      *
-     * @return Core\Controller\
+     * @return object
      */
-    public function run() {
+    public function run() :object {
         if (!isset($this->routes[$_SERVER['REQUEST_METHOD']])) {
             $controller = new Controller();
             $controller->notFound();
