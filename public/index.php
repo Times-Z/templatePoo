@@ -54,5 +54,7 @@ $router->get('/profile/:nom', function($nom) { echo $nom; });
 $router->get('/settings/:nom-:id', function ($nom, $id) { echo $nom . '&nbsp;' . $id; });
 
 
-
+/**
+ * Run router
+ */
 $router->run();

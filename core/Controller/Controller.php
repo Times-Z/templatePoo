@@ -3,7 +3,7 @@
 namespace Core\Controller;
 
 /**
- * Class controller, class maitresse rendu erreur
+ * @package Core\Controller
  */
 class Controller {
 
@@ -11,7 +11,7 @@ class Controller {
 	protected $template = 'default';
 	
 	/**
-	 * Permet de rendre une page ainsi que de porter les variables
+	 * Render the page
 	 *
 	 * @param string $view
 	 * @param array $variables
@@ -27,11 +27,21 @@ class Controller {
 		die();
 	}
 
+	/**
+	 * Generate an page (if specified) for HTTP 403 errors
+	 *
+	 * @return void
+	 */
 	public function forbidden() {
 		header('HTTP/1.0 403 Forbidden');
 		die('Accés refuser');
 	}
 
+	/**
+	 * Generate an page (if specified) for HTTP 404 errors
+	 *
+	 * @return void
+	 */
 	public function notFound() {
 		header('HTTP/1.0 404 Not Found');
 		die('Page innexistante');

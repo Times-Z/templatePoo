@@ -2,6 +2,9 @@
 
 namespace Core\Router;
 
+/**
+ * @package Core\Router
+ */
 class Route {
 
     private $path;

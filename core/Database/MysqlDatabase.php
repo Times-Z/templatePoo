@@ -3,7 +3,8 @@ namespace Core\Database;
 use \PDO;
 
 /**
- * Class Database, permet de se connecter a la bdd
+ * Class for Mysql DBMS logic
+ * @package Core\Database
  */
 Class MysqlDatabase extends Database {
 
@@ -23,9 +24,9 @@ Class MysqlDatabase extends Database {
 	}
 	
 	/**
-	 * Initialise PDO si il ne l'est pas déjà, évite les fuites de mémoire en ne l'initialisant qu'une fois
+	 * Initialise PDO object if not exist
 	 *
-	 * @return object
+	 * @return PDO
 	 */
 	private function getPDO() {
 		
@@ -38,10 +39,12 @@ Class MysqlDatabase extends Database {
 	}
 
 	/**
-	 * Execute une requète SQL
+	 * Execute an simple query statement
 	 *
 	 * @param string $statement
-	 * @return object
+	 * @param string $class_name
+	 * @param boolean $one
+	 * @return mixed
 	 */
 	public function query($statement, $class_name = null, $one = false) {
 		$req = $this->getPDO()->query($statement);
@@ -66,13 +69,13 @@ Class MysqlDatabase extends Database {
 	}
 
 	/**
-	 * Fait une requète préparer
-	 * Option de fetch all ou juste 1 objet / class
-	 * 
+	 * Execute an prepare statement
+	 *
 	 * @param string $statement
-	 * @param array $options
+	 * @param string $options
 	 * @param string $class_name
-	 * @return object
+	 * @param boolean $one
+	 * @return mixed
 	 */
 	public function prepare($statement, $options, $class_name = null, $one = false) {
 		foreach ($_POST as $key => $value) {
@@ -102,6 +105,11 @@ Class MysqlDatabase extends Database {
 		return $data;
 	}
 
+	/**
+	 * Return the last insert ID
+	 *
+	 * @return PDO
+	 */
 	public function lastInsertId() {
 		return $this->getPDO()->lastInsertId();
 	}

@@ -3,7 +3,8 @@
 namespace Core\Database;
 
 /**
- * Class commune a tout les système de sgbd
+ * Common class has all DBMS
+ * @package Core\Database
  */
 class Database {
 	

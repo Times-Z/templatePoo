@@ -6,6 +6,7 @@ use Core\Controller\Controller;
 
 /**
  * Router class, for adding an gps on your app !
+ * @package Core\Router
  */
 class Router {
 
