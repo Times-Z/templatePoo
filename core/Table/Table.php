@@ -37,7 +37,7 @@ class Table {
 	 * Create and execute and simple query or an prepared statement
 	 *
 	 * @param string $statement
-	 * @param string $attr
+	 * @param array $attr
 	 * @param boolean $one
 	 * @return void
 	 */
@@ -64,10 +64,10 @@ class Table {
 	 * Update instance table
 	 *
 	 * @param int $id
-	 * @param string $fields
+	 * @param array $fields
 	 * @return void
 	 */
-	public function update(int $id, string $fields) {
+	public function update(int $id, array $fields) {
 		$sql_parts = [];
 		$attr = [];
 		foreach ($fields as $k => $v) {
@@ -92,10 +92,10 @@ class Table {
 	/**
 	 * Insert into table
 	 *
-	 * @param string $fields
+	 * @param array $fields
 	 * @return void
 	 */
-	public function create(string $fields) {
+	public function create(array $fields) {
 		$sql_parts = [];
 		$attr = [];
 		foreach ($fields as $k => $v) {

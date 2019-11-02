@@ -71,12 +71,12 @@ Class MysqlDatabase extends Database {
 	 * Execute an prepare statement
 	 *
 	 * @param string $statement Sql statement
-	 * @param string $options
+	 * @param array $options
 	 * @param string $class_name
 	 * @param boolean $one
 	 * @return mixed
 	 */
-	public function prepare(string $statement, string $options, $class_name = null, bool $one = false) {
+	public function prepare(string $statement, array $options, $class_name = null, bool $one = false) {
 		foreach ($_POST as $key => $value) {
 			if ($key !== \App::getInstance()->escapeHtml) {
 				$_POST[$key] = trim(stripslashes(htmlentities(filter_var($value))));
