@@ -5,39 +5,30 @@ namespace App\Controller;
 use Core\Controller\Controller;
 use \App;
 
-/**
- * Class AppController extends de Core\Controller\Controller
- */
 class AppController extends Controller {
 
     /**
-     * Template par défaut
+     * Default template for views
      *
      * @var string
      */
     protected $_template = 'default';
-
-    /**
-     * Conserve le model name de la table en variable
-     *
-     * @var string
-     */
     protected $_model_name;
 
     /**
-     * Définis le path par défaut des vues
+     * Define the default path for views
      */
     public function __construct() {
         $this->viewPath = ROOT . '/app/Views/';
     }
 
     /**
-     * Charge le fichier controller correspondant a la table charger
+     * Load the Table of what you want
      *
      * @param string $model_name
      * @return void
      */
-    protected function _loadModel($model_name) {
+    protected function _loadModel(string $model_name) {
         return App::getInstance()->getTable($model_name);
     }
 
