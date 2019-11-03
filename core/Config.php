@@ -1,6 +1,8 @@
 <?php
 namespace Core;
 
+use Locale;
+
 /**
  * Config class
  * Singleton
@@ -14,20 +16,28 @@ class Config {
 
     public function __construct($file) {
 		$this->settings = require($file);
-
 	}
 
 	/**
 	 * Create an instance or return if exist
 	 *
 	 * @param string $file
-	 * @return void
+	 * @return self
 	 */
-	public static function getInstance(string $file) {
+	public static function getInstance(string $file):self {
 		if(is_null(self::$instance)) {
 			self::$instance = new Config($file);
 		}
 		return self::$instance;
+	}
+
+	/**
+	 * Return user's language (fr, en, es etc..)
+	 *
+	 * @return string
+	 */
+	public static function getLanguage():string {
+		return substr(Locale::acceptFromHttp($_SERVER['HTTP_ACCEPT_LANGUAGE']), 0, 2);
 	}
 	
 	/**
