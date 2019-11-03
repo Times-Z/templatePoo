@@ -10,21 +10,11 @@ class IndexController extends AppController {
         parent::__construct();
     }
 
-    /**
-     * Charge la page index avec l'action index
-     *
-     * @return void
-     */
     public function index() :void {
         $form = new BootstrapForm($_POST);
         $this->render('index', compact('form'));
     }
 
-    /**
-     * Charge la page template a l'action post
-     *
-     * @return void
-     */
     public function post() :void{
         \App::getInstance()->title = "NEVER TRUST USER INPUT";
         $this->render('template');
