@@ -26,7 +26,7 @@ Class MysqlDatabase extends Database {
 	/**
 	 * Initialise PDO object if not exist
 	 *
-	 * @return \PDO
+	 * @return PDO
 	 */
 	private function getPDO() :PDO {
 		if ($this->pdo === null) {
