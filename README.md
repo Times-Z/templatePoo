@@ -35,12 +35,14 @@ return [
 1. Add your route in public/index.php :
 ```php
 // No params
-$router->get('/routeName', 'viewName.functionName');
+$router->get('/routeName', 'controllerName.functionName');
 // 1 param
-$router->get('/routeName/:param', 'viewName.functionName');
+$router->get('/routeName/:param', 'controllerName.functionName');
 // 2 params
-$router->get('/routeName/:param1/:param2', 'viewName.functionName');
+$router->get('/routeName/:param1/:param2', 'controllerName.functionName');
 // etc...
+// Or same with controller in different folder (app/Controller/folderName/controllerName)
+$router->get('/routeName','folderName.controllerName.functionName');
 ```
 2. Add your controller in app/Controller :
 ```php
@@ -94,7 +96,7 @@ class TestController extends AppController {
 1. Repeat (just if you want separate view for the form) the steps 2 to 4
 2. Add the route on public/index.php :
 ```php
-$router->post('routeName', 'viewName.functionName');
+$router->post('routeName', 'controllerName.functionName');
 ```
 
 ## If you want just execute code but not in a view :
