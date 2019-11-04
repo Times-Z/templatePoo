@@ -69,12 +69,12 @@ class Route {
 
         if (is_string($this->callable)) {
             $params = explode('.', $this->callable);
-            if ($params[0] === 'admin') {
-                $controller = 'App\\Controller\\Admin\\' . ucfirst($params[1]) . 'Controller';
+            if (count($params) > 2) {
+                $controller = 'App\\Controller\\' . ucfirst($params[0]) . '\\' . ucfirst($params[1]) . 'Controller';
                 $action = $params[2];
                 $controller = new $controller;
                 return call_user_func_array([$controller, $params[2]], $this->matches);
-                $controller->$action();
+                $controller->$action;
             } else {
                 $controller = 'App\\Controller\\' . ucfirst($params[0]) . 'Controller';
                 $action = $params[1];
