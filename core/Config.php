@@ -1,8 +1,6 @@
 <?php
 namespace Core;
 
-use Locale;
-
 /**
  * Config class
  * Singleton
@@ -37,7 +35,7 @@ class Config {
 	 * @return string
 	 */
 	public static function getLanguage():string {
-		return substr(Locale::acceptFromHttp($_SERVER['HTTP_ACCEPT_LANGUAGE']), 0, 2);
+		return substr(\Locale::acceptFromHttp($_SERVER['HTTP_ACCEPT_LANGUAGE']), 0, 2);
 	}
 	
 	/**
