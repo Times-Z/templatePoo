@@ -65,8 +65,7 @@ class Route {
      *
      * @return \App\Controller\
      */
-    public function call() {
-
+    public function call() :?object {
         if (is_string($this->callable)) {
             $params = explode('.', $this->callable);
             if (count($params) > 2) {
@@ -85,7 +84,5 @@ class Route {
         } else {
             return call_user_func_array($this->callable, $this->matches);
         }
-        
     }
-
 }
