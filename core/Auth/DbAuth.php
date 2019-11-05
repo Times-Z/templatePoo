@@ -47,9 +47,9 @@ class DbAuth {
 	/**
 	 * Return the session if exist
 	 *
-	 * @return array
+	 * @return bool
 	 */
-	public function logged() {
+	public function logged() :?bool {
 		return isset($_SESSION['auth']);
 	}
 
