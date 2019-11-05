@@ -44,12 +44,11 @@ class Config {
 	 * @param string $key
 	 * @return void
 	 */
-	public function get(string $key) {
+	public function get(string $key) :?string {
 		if (!isset($this->settings[$key])) {
 			return null;
-		} else {
-			return $this->settings[$key];
 		}
+		return $this->settings[$key];
 	}
 
 }
