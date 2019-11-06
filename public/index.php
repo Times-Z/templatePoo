@@ -10,7 +10,13 @@ require ROOT . '/app/App.php';
 
 App::load();
 
-$router = new Router($_GET['url']);
+if (isset($_GET['url'])) {
+    $url = $_GET['url'];
+} else {
+    $url = '/';
+}
+
+$router = new Router($url);
 
 $router->get('/', 'index.index');
 $router->post('/', 'index.post');
