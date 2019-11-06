@@ -35,7 +35,7 @@ class Route {
      * @param string $url
      * @return boolean
      */
-    public function match(string $url) :bool {
+    public function match(?string $url) :bool {
         $url = trim($url, '/');
         $path = preg_replace_callback('#:([\w]+)#', [$this, 'paramMatch'], $this->path);
         $regex = "#^$path$#i";

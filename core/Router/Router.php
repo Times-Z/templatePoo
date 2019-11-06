@@ -14,7 +14,7 @@ class Router {
     private $routes = [];
     private $namedRoutes = [];
 
-    public function __construct(string $url) {
+    public function __construct(?string $url) {
         $this->url = $url;
     }
 
