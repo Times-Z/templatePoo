@@ -18,7 +18,7 @@
 <body>
     <div class="container-fluid mt-2 mb-4 vh-100">
         <nav class="nav nav-pills nav-fill mt-1 mb-4">
-            <a class="nav-item nav-link <?= ($view === 'index') ? 'active' :  '' ?>" href="<?=ROUTE?>">Acceuil</a>
+            <a class="nav-item nav-link <?= ($view === 'index') ? 'active' :  '' ?>" href="<?=ROUTE?>">Accueil</a>
             <a class="nav-item nav-link <?= ($view === 'template') ? 'active' :  '' ?> " href="#">Une autre page</a>
             <a class="nav-item nav-link" href="#">Encore une autre page</a>
             <a class="nav-item nav-link disabled" href="#">Lien désactiver</a>
