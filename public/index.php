@@ -3,7 +3,12 @@
 use Core\Router\Router;
 
 define('ROOT', dirname(__DIR__));
-define('RACINE', "/templatePoo/");
+
+if (php_sapi_name() === 'cli-server') {
+    define('RACINE', "/");
+} else {
+    define('RACINE', "/templatePoo/public/");
+}
 
 require ROOT . '/vendor/autoload.php';
 require ROOT . '/app/App.php';
