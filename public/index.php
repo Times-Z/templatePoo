@@ -6,8 +6,10 @@ define('ROOT', dirname(__DIR__));
 
 if (php_sapi_name() === 'cli-server') {
     define('RACINE', "/");
+    define('ROUTE', '/');
 } else {
     define('RACINE', "/templatePoo/public/");
+    define('ROUTE', '/templatePoo/');
 }
 
 require ROOT . '/vendor/autoload.php';
