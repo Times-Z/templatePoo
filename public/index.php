@@ -5,10 +5,10 @@ use Core\Router\Router;
 define('ROOT', dirname(__DIR__));
 
 if (php_sapi_name() === 'cli-server') {
-    define('RACINE', "/");
+    define('RACINE', '/');
     define('ROUTE', '/');
 } else {
-    define('RACINE', "/templatePoo/public/");
+    define('RACINE', '/templatePoo/public/');
     define('ROUTE', '/templatePoo/');
 }
 
