@@ -111,7 +111,7 @@ $router->get('routeName/:param', function($param) {
 ```
 ---
 ## Tips
-- If you modify the project folder name, don't forget to change the `RACINE` constance in public/index.php
+- If you modify the project folder name, don't forget to change the `RACINE` and `ROUTE` constance in public/index.php
 - You can create forms with the `Core\HTML\BoostrapForm` class
 
 ## Contributing
