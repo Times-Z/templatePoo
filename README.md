@@ -14,10 +14,7 @@ git clone https://github.com/Crash-Zeus/templatePoo.git
 ```
 Disclaimer : 
 
-~~Not use with internal PHP server~~
-
-✔️ Fixed
-
+Not use with internal PHP server
 
 ---
 
