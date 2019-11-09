@@ -15,6 +15,10 @@ class IndexController extends AppController {
         $this->render('index', compact('form'));
     }
 
+    public function other() :void {
+        $this->render('other');
+    }
+
     public function post() :void{
         \App::getInstance()->title = "NEVER TRUST USER INPUT";
         $this->render('template');
