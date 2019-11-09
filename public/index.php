@@ -19,7 +19,7 @@ if (php_sapi_name() === 'cli-server') {
     define('RACINE', '/' . end($route) . '/public/');
     define('ROUTE', '/' . end($route) . '/');
 }
-var_dump(RACINE);
+
 require ROOT . '/vendor/autoload.php';
 require ROOT . '/app/App.php';
 
