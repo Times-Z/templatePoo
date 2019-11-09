@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="<?=RACINE?>images/favicon.ico" type="image/x-icon">
     <title><?=App::getInstance()->title ?></title>
     <!-- Bootstrap & co -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -19,7 +20,7 @@
     <div class="container-fluid mt-2 mb-4 vh-100">
         <nav class="nav nav-pills nav-fill mt-1 mb-4">
             <a class="nav-item nav-link <?= ($view === 'index') ? 'active' :  '' ?>" href="<?=ROUTE?>">Accueil</a>
-            <a class="nav-item nav-link <?= ($view === 'template') ? 'active' :  '' ?> " href="#">Une autre page</a>
+            <a class="nav-item nav-link <?= ($view === 'other') ? 'active' :  '' ?> " href="<?=ROUTE?>other">Une autre page</a>
             <a class="nav-item nav-link" href="#">Encore une autre page</a>
             <a class="nav-item nav-link disabled" href="#">Lien désactiver</a>
         </nav>
