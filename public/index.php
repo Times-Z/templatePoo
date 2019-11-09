@@ -15,11 +15,11 @@ if (php_sapi_name() === 'cli-server') {
     define('ROUTE', '/');
     $url = $_SERVER['REQUEST_URI'];
 } else {
-    define('RACINE', '/templatePoo/public/');
     $route = explode('/', dirname(__DIR__));
+    define('RACINE', '/' . end($route) . '/public/');
     define('ROUTE', '/' . end($route) . '/');
 }
-
+var_dump(RACINE);
 require ROOT . '/vendor/autoload.php';
 require ROOT . '/app/App.php';
 
