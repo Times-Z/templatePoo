@@ -13,15 +13,36 @@ use PHPUnit\Framework\TestCase;
 final class AppTest extends TestCase {
 
     public function testGetinstance() {
-        $this->assertIsObject(App::getInstance());
+        $config = App::getInstance();
+        $this->assertIsObject($config);
+        $this->assertIsNotBool($config);
+        $this->assertIsNotString($config);
+        $this->assertIsNotArray($config);
+        $this->assertIsNotCallable($config);
+        $this->assertIsNotFloat($config);
+        $this->assertIsNotInt($config);
     }
 
     public function testGetTable() {  
-        $this->assertIsObject(App::getInstance()->getTable('Base'));
+        $config = App::getInstance()->getTable('Base');
+        $this->assertIsObject($config);
+        $this->assertIsNotBool($config);
+        $this->assertIsNotString($config);
+        $this->assertIsNotArray($config);
+        $this->assertIsNotCallable($config);
+        $this->assertIsNotFloat($config);
+        $this->assertIsNotInt($config);
     }
 
     public function testGetDb() {
-        $this->assertIsObject(App::getInstance()->getDb());
+        $config = App::getInstance()->getDb();
+        $this->assertIsObject($config);
+        $this->assertIsNotBool($config);
+        $this->assertIsNotString($config);
+        $this->assertIsNotArray($config);
+        $this->assertIsNotCallable($config);
+        $this->assertIsNotFloat($config);
+        $this->assertIsNotInt($config);
     }
 
 }
