@@ -10,10 +10,10 @@ class Autoloader {
    /**
     * Register autoloader
     *
-    * @return void
+    * @return bool
     */
-    public static function register() {
-        spl_autoload_register(array(__CLASS__, 'autoload'));
+    public static function register() :?bool {
+        return spl_autoload_register(array(__CLASS__, 'autoload'));
     }
 
 	/**
@@ -22,7 +22,7 @@ class Autoloader {
      * @param string $class
      * @return void
      */
-    public static function autoload(string $class) {
+    public static function autoload(string $class) :void {
         if (strpos($class, __NAMESPACE__ . '\\') === 0) {
             $class = str_replace(__NAMESPACE__ . '\\', '', $class);
             $class = str_replace('\\', '/', $class);
