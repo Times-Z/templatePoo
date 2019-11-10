@@ -7,7 +7,7 @@
 
 ## Installation
 
-Download or clone the project in www folder of your local server
+Download or clone the project in `www` folder of your local server
 
 ```bash
 git clone https://github.com/Crash-Zeus/templatePoo.git
