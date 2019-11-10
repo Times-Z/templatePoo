@@ -32,7 +32,7 @@ class App {
 	 *
 	 * @return void
 	 */
-	public static function load() {
+	public static function load() :void {
 		session_start();
 		require ROOT .'/app/Autoloader.php';
 		Autoloader::register();
