@@ -11,8 +11,8 @@ class Autoloader {
      *
      * @return void
      */
-    public static function register() :void {
-        spl_autoload_register(array(__CLASS__, 'autoload'));
+    public static function register() :?bool {
+        return spl_autoload_register(array(__CLASS__, 'autoload'));
     }
 
 	/**

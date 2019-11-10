@@ -22,7 +22,7 @@ class Config {
 	 * @param string $file
 	 * @return self
 	 */
-	public static function getInstance(string $file):self {
+	public static function getInstance(string $file) :self {
 		if(is_null(self::$instance)) {
 			self::$instance = new Config($file);
 		}
@@ -34,7 +34,7 @@ class Config {
 	 *
 	 * @return string
 	 */
-	public static function getLanguage():string {
+	public static function getLanguage() :string {
 		return substr(\Locale::acceptFromHttp($_SERVER['HTTP_ACCEPT_LANGUAGE']), 0, 2);
 	}
 	
