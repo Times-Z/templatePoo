@@ -1,7 +1,9 @@
 # OOP TEMPLATE [PHP]
- [![Project license](https://img.shields.io/pypi/l/ansicolortags.svg)](https://github.com/Crash-Zeus/templatePoo/blob/master/LICENSE)
- [![PHP version](https://img.shields.io/badge/php-%3E%207.0-green)](https://www.php.net/downloads.php)
- [![PHP version](https://img.shields.io/badge/Apache%20module%20RewriteEngine-On-green)](https://httpd.apache.org/docs/2.4/fr/mod/mod_rewrite.html)
+ [![Project license](https://img.shields.io/pypi/l/ansicolortags.svg?style=flat-square)](https://github.com/Crash-Zeus/templatePoo/blob/master/LICENSE)
+ [![PHP version](https://img.shields.io/badge/php-%3E%207.0-brightgreen?style=flat-square)](https://www.php.net/downloads.php)
+ [![PHP version](https://img.shields.io/badge/Apache%20module%20RewriteEngine-On-brightgreen?style=flat-square)](https://httpd.apache.org/docs/2.4/fr/mod/mod_rewrite.html)
+ [![PHP UNIT](https://img.shields.io/badge/php%20unit-v%208-brightgreen?style=flat-square)](https://phpunit.de/)
+ [![TEST VALIDATION](https://img.shields.io/badge/tests-%E2%9C%94%EF%B8%8F-brightgreen?style=flat-square)]()
 
 *A simple OOP template what i use for my different project*
 
@@ -116,6 +118,7 @@ $router->get('routeName/:param', function($param) {
 ## Tips
 - ~~If you modify the project folder name, don't forget to change the `RACINE` and `ROUTE` constance in public/index.php~~ (fixed)
 - You can create forms with the `Core\HTML\BoostrapForm` class
+- To start test with php test use `./vendor/bin/phpunit` in racine folder
 
 ## Contributing
 Pull requests are welcome ! You can fork the project to add your improvements.
