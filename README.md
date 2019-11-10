@@ -43,6 +43,10 @@ $router->get('/routeName/:param', 'controllerName.functionName');
 // 2 params
 $router->get('/routeName/:param1/:param2', 'controllerName.functionName');
 // etc...
+
+// Or with parameter pattern (regEX)
+$router->get('/routeName/:id', 'controllerName.functionName')->with('id', '([0-9]+)');
+
 // Or same with controller in different folder (app/Controller/folderName/controllerName)
 $router->get('/routeName','folderName.controllerName.functionName');
 ```
@@ -62,7 +66,7 @@ class TestController extends AppController {
 
 }
 ```
-3. Add the corresponding view on app/Views :
+3. Add the corresponding view in app/Views :
 ```html
 <!-- The view name is "viewName".php in the router -->
 <!-- She content the HTML of page you want to display like : -->
@@ -105,7 +109,7 @@ $router->post('routeName', 'controllerName.functionName');
 Create the route you need and add an anonymous function with parameters and code you want to execute
 ```php
 $router->get('routeName/:param', function($param) {
-			echo "Executed anonyme function with param : {$param}";
+			echo "Execute anonymous function with param : {$param}";
 			});
 ```
 ---
