@@ -16,5 +16,8 @@
             "Core\\": "core",
             "App\\": "app"
         }
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^8"
     }
 }
