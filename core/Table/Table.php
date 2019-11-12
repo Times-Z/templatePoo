@@ -80,16 +80,6 @@ class Table {
 	}
 
 	/**
-	 * Delete from id
-	 *
-	 * @param int $id
-	 * @return void
-	 */
-	public function delete(int $id) {
-		return $this->query("DELETE FROM {$this->table} WHERE id = ?", [$id]);
-	}
-
-	/**
 	 * Insert into table
 	 *
 	 * @param array $fields
@@ -104,6 +94,16 @@ class Table {
 		}
 		$sql_part = implode(', ', $sql_parts);
 		return $this->query("INSERT INTO {$this->table} SET {$sql_part}", $attr, true);
+	}
+
+	/**
+	 * Delete from id
+	 *
+	 * @param int $id
+	 * @return void
+	 */
+	public function delete(int $id) {
+		return $this->query("DELETE FROM {$this->table} WHERE id = ?", [$id]);
 	}
 
 	/**
