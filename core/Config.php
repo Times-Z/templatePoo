@@ -8,8 +8,8 @@ namespace Core;
  */
 class Config {
 
-	private $settings = [];
-	private static $instance;
+	private array $settings = [];
+	private static object $instance;
 
 
     public function __construct($file) {
@@ -23,7 +23,7 @@ class Config {
 	 * @return self
 	 */
 	public static function getInstance(string $file) :self {
-		if(is_null(self::$instance)) {
+		if (is_null(self::$instance)) {
 			self::$instance = new Config($file);
 		}
 		return self::$instance;
