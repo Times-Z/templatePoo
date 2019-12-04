@@ -10,9 +10,9 @@ use Core\Database\MysqlDatabase;
  */
 class App {
 
-	public $title = 'Défault title';
-	public $escapeHtml = '';
-	private $dbInstance;
+	public string $title = 'Défault title';
+	public string $escapeHtml = '';
+	private object $dbInstance;
 	private static $instance;
 	
 	/**
@@ -20,7 +20,7 @@ class App {
 	 *
 	 * @return self
 	 */
-	public static function getInstance() :self {
+	public static function getInstance() {
 		if (is_null(self::$instance)) {
 			self::$instance = new App;
 		}
