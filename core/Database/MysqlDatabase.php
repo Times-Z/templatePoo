@@ -8,19 +8,17 @@ use \PDO;
  */
 Class MysqlDatabase extends Database {
 
-	private $db_name;
-	private $db_user;
-	private $db_password;
-	private $db_host;
-	private $pdo;
+	private string $db_name;
+	private string $db_user;
+	private string $db_password;
+	private string $db_host;
+	private object $pdo;
 
-    public function __construct(string $db_name, string $db_user = 'local', string $db_password = 'admin', string $db_host = 'localhost') {
-
+    public function __construct(?string $db_name, ?string $db_user = 'local', ?string $db_password = 'admin', ?string $db_host = 'localhost') {
 		$this->db_name = $db_name;
 		$this->db_user = $db_user;
 		$this->db_password = $db_password;
 		$this->db_host = $db_host;
-
 	}
 	
 	/**
