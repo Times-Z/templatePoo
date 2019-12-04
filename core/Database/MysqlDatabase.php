@@ -12,7 +12,7 @@ Class MysqlDatabase extends Database {
 	private string $db_user;
 	private string $db_password;
 	private string $db_host;
-	private object $pdo;
+	private PDO $pdo;
 
     public function __construct(?string $db_name, ?string $db_user = 'local', ?string $db_password = 'admin', ?string $db_host = 'localhost') {
 		$this->db_name = $db_name;
