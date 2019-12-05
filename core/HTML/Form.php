@@ -7,8 +7,8 @@ namespace Core\HTML;
  */
 class Form {
 
-    protected $data;
-    public $surround = 'p';
+    protected array $data;
+    public string $surround = 'p';
 
     public function __construct(array $data = []) {
         $this->data = $data;
