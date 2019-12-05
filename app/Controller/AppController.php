@@ -12,8 +12,8 @@ class AppController extends Controller {
      *
      * @var string
      */
-    protected $_template = 'default';
-    protected $_model_name;
+    protected string $_template = 'default';
+    protected string $_model_name;
 
     /**
      * Define the default path for views
