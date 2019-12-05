@@ -12,7 +12,7 @@ class App {
 
 	public string $title = 'Défault title';
 	public string $escapeHtml = '';
-	private object $dbInstance;
+	private Config $dbInstance;
 	private static $instance;
 	
 	/**
