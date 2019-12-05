@@ -9,7 +9,7 @@ namespace Core;
 class Config {
 
 	private array $settings = [];
-	private static object $instance;
+	private static self $instance;
 
 
     public function __construct($file) {
