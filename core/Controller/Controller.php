@@ -7,8 +7,8 @@ namespace Core\Controller;
  */
 class Controller {
 
-	protected $viewPath;
-	protected $template = 'default';
+	protected string $viewPath;
+	protected string $template = 'default';
 	
 	/**
 	 * Render the page
