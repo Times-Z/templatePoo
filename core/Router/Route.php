@@ -7,10 +7,10 @@ namespace Core\Router;
  */
 class Route {
 
-    private $path;
+    private string $path;
     private $callable;
-    private $matches = [];
-    private $params = [];
+    private array $matches = [];
+    private array $params = [];
 
     public function __construct(string $path, $callable) {
         $this->path = trim($path, '/');
