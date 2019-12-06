@@ -23,7 +23,7 @@ final class AppTest extends TestCase {
         $this->assertIsNotInt($config);
     }
 
-    public function testGetTable() {  
+    public function testGetTable() {
         $config = App::getInstance()->getTable('Base');
         $this->assertIsObject($config);
         $this->assertIsNotBool($config);

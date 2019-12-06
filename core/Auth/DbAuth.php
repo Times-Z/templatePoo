@@ -8,7 +8,7 @@ namespace Core\Auth;
  */
 class DbAuth {
 
-	private \Core\Database\MysqlDatabase $db;
+	private object $db;
 
     public function __construct(object $db) {
 		$this->db = $db;
