@@ -9,10 +9,10 @@ namespace Core;
 class Config {
 
 	private array $settings = [];
-	private static self $instance;
+	private static $instance;
 
 
-    public function __construct($file) {
+    public function __construct(string $file) {
 		$this->settings = require($file);
 	}
 
@@ -22,7 +22,7 @@ class Config {
 	 * @param string $file
 	 * @return self
 	 */
-	public static function getInstance(string $file) :self {
+	public static function getInstance(string $file) {
 		if (is_null(self::$instance)) {
 			self::$instance = new Config($file);
 		}
