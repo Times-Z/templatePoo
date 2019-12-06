@@ -12,7 +12,7 @@ class App {
 
 	public string $title = 'Défault title';
 	public string $escapeHtml = '';
-	private Config $dbInstance;
+	private $dbInstance;
 	private static $instance;
 	
 	/**
@@ -56,7 +56,7 @@ class App {
 	 *
 	 * @return object
 	 */
-	public function getDb() :object {
+	public function getDb() {
 		$config = Config::getInstance(ROOT . '/config/config.php');
 		if (is_null($this->dbInstance)) {
 			$this->dbInstance = new MysqlDatabase($config->get('db_name'), $config->get('db_user'), $config->get('db_password'), $config->get('db_host'));
