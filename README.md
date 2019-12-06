@@ -2,8 +2,8 @@
 ##  WORK IN PROGRESS UPGRADE TO PHP 7.4
  [![Project license](https://img.shields.io/pypi/l/ansicolortags.svg?style=flat-square)](https://github.com/Crash-Zeus/templatePoo/blob/master/LICENSE)
  [![PHP version](https://img.shields.io/badge/php-%3E%207.4-brightgreen?style=flat-square)](https://www.php.net/downloads.php)
- [![PHP version](https://img.shields.io/badge/Apache%20module%20RewriteEngine-On-brightgreen?style=flat-square)](https://httpd.apache.org/docs/2.4/fr/mod/mod_rewrite.html)
- [![PHP UNIT](https://img.shields.io/badge/php%20unit-v%208-brightgreen?style=flat-square)](https://phpunit.de/)
+ [![APACHE MOD](https://img.shields.io/badge/Apache%20module%20RewriteEngine-On-brightgreen?style=flat-square)](https://httpd.apache.org/docs/2.4/fr/mod/mod_rewrite.html)
+ [![PHP UNIT](https://img.shields.io/badge/php%20unit-8-brightgreen?style=flat-square)](https://phpunit.de/)
  [![TEST VALIDATION](https://img.shields.io/badge/Tests-%E2%9C%94%EF%B8%8F-brightgreen?style=flat-square)]()
  <!-- [![TEST VALIDATION](https://img.shields.io/badge/Tests-X-red?style=flat-square)]() -->
 
