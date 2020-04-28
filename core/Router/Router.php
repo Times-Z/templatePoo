@@ -2,7 +2,7 @@
 
 namespace Core\Router;
 
-use Core\Controller\Controller;
+use App\Controller\AppController;
 
 /**
  * Router class, for adding an gps on your app !
@@ -63,11 +63,11 @@ class Router {
     /**
      * Run the router
      *
-     * @return object
+     * @return object|null
      */
     public function run() : ?object {
         if (!isset($this->routes[$_SERVER['REQUEST_METHOD']])) {
-            $controller = new Controller();
+            $controller = new AppController();
             $controller->notFound();
         }
         foreach ($this->routes[$_SERVER['REQUEST_METHOD']] as $route) {
@@ -75,7 +75,7 @@ class Router {
                 return $route->call();
             }
         }
-        $controller = new Controller();
+        $controller = new AppController();
         $controller->notFound();
     }
 
