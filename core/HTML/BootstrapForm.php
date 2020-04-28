@@ -282,7 +282,7 @@ class BootstrapForm extends Form {
      * @param boolean $space
      * @return string
      */
-    public function submit(string $name, string $value, bool $space = false) :string {
+    public function submit(string $name, string $value, string $space = '') :string {
         return $this->surround('<input type="submit" class="form-control btn btn-success ' . $space . '" name="' . $name . '" value="' . $value . '">');
     }
 
