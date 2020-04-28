@@ -1,7 +1,7 @@
 <?php
 return [
-	"db_user" => "local",
-	"db_password" => "admin",
-	"db_host" => "localhost",
+	"db_user" => "root",
+	"db_password" => "root",
+	"db_host" => "db",
 	"db_name" => "unit_test_bdd"
 ];
