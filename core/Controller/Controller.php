@@ -15,9 +15,9 @@ class Controller {
 	 *
 	 * @param string $view
 	 * @param array $vars
-	 * @return void
+	 * @return string
 	 */
-	protected function render(string $view, array $vars = []) :void {
+	protected function render(string $view, array $vars = []) :string {
 		ob_start();
 		extract($vars);
 		require($this->viewPath . str_replace('.', '/', $view) . '.php');
@@ -30,21 +30,21 @@ class Controller {
 	/**
 	 * Generate an page (if specified) for HTTP 403 errors
 	 *
-	 * @return void
+	 * @return string
 	 */
-	public function forbidden() :void {
+	public function forbidden() :string {
 		header('HTTP/1.0 403 Forbidden');
-		die('Accés refuser');
+		die('Api overloaded 403 forbidden');
 	}
 
 	/**
 	 * Generate an page (if specified) for HTTP 404 errors
 	 *
-	 * @return void
+	 * @return string
 	 */
-	public function notFound() :void {
+	public function notFound() :string {
 		header('HTTP/1.0 404 Not Found');
-		die('Page innexistante');
+		die('404 not found');
 	}
 
 

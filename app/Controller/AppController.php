@@ -32,4 +32,14 @@ class AppController extends Controller {
         return App::getInstance()->getTable($model_name);
     }
 
+	public function forbidden() :string {
+		header('HTTP/1.0 403 Forbidden');
+		die('Api overloaded 403 forbidden');
+	}
+
+    public function notFound() :string {
+		header('HTTP/1.0 404 Not Found');
+		die('Api overloaded 404 not found');
+    }
+
 }
