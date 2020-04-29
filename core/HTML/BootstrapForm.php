@@ -25,12 +25,12 @@ class BootstrapForm extends Form {
      * @param string $label
      * @param string $placeholder
      * @param boolean $required
-     * @param boolean $value
+     * @param boolean|string $value
      * @param boolean $disabled
      * @param boolean $pattern
      * @return string
      */
-    public function text(string $name, string $label, string $placeholder = '', bool $required = false, bool $value = false, bool $disabled = false, bool $pattern = false) :string {
+    public function text(string $name, string $label, string $placeholder = '', bool $required = false, $value = false, bool $disabled = false, bool $pattern = false) :string {
         $label = ($label !== '') ? '<label for="' . $name . '">' . $label . '</label>' : '';
         $value = ($value !== false) ? $value : $this->__getValue($name);
         $required = ($required !== false) ? 'required' : '';
@@ -49,11 +49,11 @@ class BootstrapForm extends Form {
      * @param string $label
      * @param string $placeholder
      * @param boolean $required
-     * @param boolean $value
+     * @param boolean|string $value
      * @param boolean $disabled
      * @return string
      */
-    public function textarea(string $name, string $label, string $placeholder = '', bool $required = false, bool $value = false, bool $disabled = false) :string {
+    public function textarea(string $name, string $label, string $placeholder = '', bool $required = false, $value = false, bool $disabled = false) :string {
         $label = ($label !== '') ? '<label for="' . $name . '">' . $label . '</label>' : '';
         $value = ($value !== false) ? $value : $this->__getValue($name);
         $required = ($required !== false) ? 'required' : '';
@@ -71,11 +71,11 @@ class BootstrapForm extends Form {
      * @param string $label
      * @param string $placeholder
      * @param boolean $required
-     * @param boolean $value
+     * @param boolean|string $value
      * @param boolean $disabled
      * @return string
      */
-    public function phone(string $name, string $label, string $placeholder = '', bool $required = false, bool $value = false, bool $disabled = false) :string {
+    public function phone(string $name, string $label, string $placeholder = '', bool $required = false, $value = false, bool $disabled = false) :string {
         $label = ($label !== '') ? '<label for="' . $name . '">' . $label . '</label>' : '';
         $value = ($value !== false) ? $value : $this->__getValue($name);
         $required = ($required !== false) ? 'required' : '';
@@ -93,11 +93,11 @@ class BootstrapForm extends Form {
      * @param string $label
      * @param string $placeholder
      * @param boolean $required
-     * @param boolean $value
+     * @param boolean|string $value
      * @param boolean $disabled
      * @return string
      */
-    public function email(string $name, string $label, string $placeholder = '', bool $required = false, bool $value = false, bool $disabled = false) :string {
+    public function email(string $name, string $label, string $placeholder = '', bool $required = false, $value = false, bool $disabled = false) :string {
         $label = ($label !== '') ? '<label for="' . $name . '">' . $label . '</label>' : '';
         $value = ($value !== false) ? $value : $this->__getValue($name);
         $required = ($required !== false) ? 'required' : '';
@@ -287,6 +287,3 @@ class BootstrapForm extends Form {
     }
 
 }
-
-
-
