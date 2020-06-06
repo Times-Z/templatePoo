@@ -2,7 +2,7 @@
 
 namespace Core\Table;
 
-use Core\Database\Database;
+use Core\Database\MysqlDatabase;
 
 /**
  * Table class
@@ -13,7 +13,7 @@ class Table {
 	protected $table;
 	protected $db;
 
-    public function __construct(Database $db) {
+    public function __construct(MysqlDatabase $db) {
 		$this->db = $db;
         if (is_null($this->table)) {
             $parts = explode('\\', get_class($this));
@@ -26,7 +26,7 @@ class Table {
 	/**
 	 * Select all from table
 	 *
-	 * @return void
+	 * @return object
 	 */
 	public function all() {
 		return $this->query('SELECT * FROM ' . $this->table);
@@ -39,7 +39,7 @@ class Table {
 	 * @param string $statement
 	 * @param array $attr
 	 * @param boolean $one
-	 * @return void
+	 * @return object
 	 */
 	public function query(string $statement, $attr = null, bool $one = false) {
 		if ($attr) {
@@ -54,7 +54,7 @@ class Table {
 	 * Get all from an specifique id
 	 *
 	 * @param int $id
-	 * @return void
+	 * @return object
 	 */
 	public function find(int $id) {
 		return $this->query("SELECT * FROM {$this->table} WHERE id = ?", [$id], true);
@@ -65,7 +65,7 @@ class Table {
 	 *
 	 * @param int $id
 	 * @param array $fields
-	 * @return void
+	 * @return object
 	 */
 	public function update(int $id, array $fields) {
 		$sql_parts = [];
@@ -83,7 +83,7 @@ class Table {
 	 * Insert into table
 	 *
 	 * @param array $fields
-	 * @return void
+	 * @return object
 	 */
 	public function create(array $fields) {
 		$sql_parts = [];
@@ -100,7 +100,7 @@ class Table {
 	 * Delete from id
 	 *
 	 * @param int $id
-	 * @return void
+	 * @return object
 	 */
 	public function delete(int $id) {
 		return $this->query("DELETE FROM {$this->table} WHERE id = ?", [$id]);
@@ -111,7 +111,7 @@ class Table {
 	 *
 	 * @param string $key
 	 * @param string $value
-	 * @return void
+	 * @return array
 	 */
 	public function extract(string $key, string $value) {
 		$records = $this->all();
