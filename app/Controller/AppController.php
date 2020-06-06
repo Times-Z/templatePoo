@@ -26,9 +26,9 @@ class AppController extends Controller {
      * Load the Table of what you want
      *
      * @param string $model_name
-     * @return void
+     * @return object
      */
-    protected function _loadModel(string $model_name) {
+    protected function _loadModel(string $model_name) :object {
         return App::getInstance()->getTable($model_name);
     }
 
