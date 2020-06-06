@@ -20,7 +20,7 @@ class App {
 	 *
 	 * @return self
 	 */
-	public static function getInstance() {
+	public static function getInstance() :self {
 		if (is_null(self::$instance)) {
 			self::$instance = new App;
 		}
@@ -54,9 +54,9 @@ class App {
 	/**
 	 * Get the database instance
 	 *
-	 * @return object
+	 * @return MyslDatabase
 	 */
-	public function getDb() {
+	public function getDb() :MysqlDatabase {
 		$config = Config::getInstance(ROOT . '/config/config.php');
 		if (is_null($this->dbInstance)) {
 			$this->dbInstance = new MysqlDatabase($config->get('db_name'), $config->get('db_user'), $config->get('db_password'), $config->get('db_host'));
