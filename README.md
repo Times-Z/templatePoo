@@ -15,9 +15,6 @@ Download or clone the project in `www` folder of your local server
 ```bash
 git clone https://github.com/Crash-Zeus/templatePoo.git
 ```
-Disclaimer : 
-
-~~Not use with internal PHP server~~ ✅ __Fixed__
 
 ---
 
@@ -115,9 +112,8 @@ $router->get('routeName/:param', function($param) {
 ```
 ---
 ## Tips
-- ~~If you modify the project folder name, don't forget to change the `RACINE` and `ROUTE` constance in public/index.php~~ (fixed)
 - You can create forms with the `Core\HTML\BoostrapForm` class
-- To start test with php test use `./vendor/bin/phpunit` in racine folder
+- To start test with php test use `./vendor/bin/phpunit` in racine folder (run into docker if your app is into container)
 
 ## Contributing
 Pull requests are welcome ! You can fork the project to add your improvements.
