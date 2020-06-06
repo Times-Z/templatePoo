@@ -9,7 +9,7 @@ class Autoloader {
     /**
      * Register autoloader
      *
-     * @return void
+     * @return null|bool
      */
     public static function register() :?bool {
         return spl_autoload_register(array(__CLASS__, 'autoload'));

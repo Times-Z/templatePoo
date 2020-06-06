@@ -34,7 +34,7 @@ class DbAuth {
 	 * @return boolean
 	 */
 	public function login(string $username, string $password) :bool {
-		$user = $this->db->prepare('SELECT * FROM users WHERE username = ?', [$username], null, true);
+		$user = $this->db->prepare('SELECT * FROM users WHERE username = :username', ['username' => $username], null, true);
 		if ($user) {
 			if (password_verify($password, $user->password)) {
 				$_SESSION['auth']['id'] = $user->id;
