@@ -112,7 +112,8 @@ $router->get('routeName/:param', function($param) {
 ```
 ---
 ## Tips
-- You can create forms with the `Core\HTML\BoostrapForm` class
+- You can create forms with the `BoostrapForm\BoostrapForm` class include in require
+- You can secure POST and GET vars with the `UserInput\BoostrapUserInputForm` class include in require (see UserInput.php for the how to use)
 - To start test with php test use `./vendor/bin/phpunit` in racine folder (run into docker if your app is into container)
 
 ## Contributing
