@@ -3,7 +3,7 @@
 namespace App\Controller;
 
 use App;
-use Core\HTML\BootstrapForm;
+use BootstrapForm\BootstrapForm;
 
 class IndexController extends AppController {
 
